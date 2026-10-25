@@ -1,0 +1,15 @@
+# Unit and offline end-to-end tests; the live E2E suite (real Trello board, real agent CLIs) needs E2E=1 and credentials.
+name: tests
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r scripts/orchestrator/requirements.txt
+      - run: python -m pytest -q tests/

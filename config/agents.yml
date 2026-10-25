@@ -1,0 +1,32 @@
+# AI Agent layer — default registry + priority chains.
+# Override via .env (AI_CODING_PRIORITY, AI_STRUCTURED_PRIORITY) without editing this file.
+# Spec: docs/superpowers/specs/2026-04-18-ai-agent-layer-design.md
+
+agents:
+  codex:
+    class: CodexAgent
+    model: gpt-5.5
+    reasoning_effort: xhigh
+    cost_tier: free
+  gemini:
+    class: GeminiAgent
+    cost_tier: free
+  openrouter:
+    class: OpenCodeAgent
+    model: openrouter/anthropic/claude-sonnet-4.5
+    cost_tier: medium
+  claude:
+    class: OpenCodeAgent
+    model: anthropic/claude-opus-4-7
+    cost_tier: high
+
+coding:
+  priority: [codex, gemini, openrouter, claude]
+
+structured_llm:
+  priority:
+    - codex
+    - gemini
+    - openrouter
+    - claude
+    - litellm:openai/gpt-4o-mini

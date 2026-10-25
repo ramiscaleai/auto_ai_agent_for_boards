@@ -1,0 +1,17 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+logs/
+agents.local.yml
+.run/
+repos.md
+
+# Session-local scaffolding (user-specific, not project code)
+docs/stopped.md
+scripts/resume.sh
+
+# Media artifacts
+*.mp4

@@ -1,0 +1,10 @@
+# AI Agent layer dependencies (sub-project B)
+# All MIT/Apache-2.0/BSD — verified per spec Appendix A constraint #6.
+pydantic>=2.5,<3
+pyyaml>=6.0
+python-dotenv>=1.0
+litellm>=1.83.0          # Lower bound: security fix per spec Appendix A constraint #5.
+instructor>=1.5
+langfuse>=2.40,<3        # MIT core; EE folder NOT imported. Pinned <3 — v3/v4 have a breaking SDK rewrite (OTel-based); tracing.py is written against v2 API. Revisit when migrating to v4 intentionally.
+pytest>=8.0
+pytest-cov>=5.0
